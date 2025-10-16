@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+*<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -17,6 +17,7 @@
 
     html {
       scroll-behavior: smooth;
+      font-size: 16px;
     }
 
     body {
@@ -24,7 +25,6 @@
       background: #000;
       color: #fff;
       line-height: 1.8;
-      font-size: 20px;
       overflow-x: hidden;
       position: relative;
     }
@@ -38,10 +38,7 @@
     body::before {
       content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background: url("bis.jpg") no-repeat center center/cover;
       filter: blur(6px) brightness(0.6);
       z-index: -2;
@@ -50,10 +47,7 @@
     body::after {
       content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background: rgba(0, 0, 0, 0.65);
       z-index: -1;
     }
@@ -63,7 +57,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 22px 50px;
+      padding: 20px 5%;
       background: rgba(0, 0, 0, 0.6);
       display: flex;
       justify-content: space-between;
@@ -82,9 +76,13 @@
       color: #fff;
     }
 
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
     nav a {
-      margin: 0 20px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 500;
       transition: color 0.3s, border-bottom 0.3s;
       padding-bottom: 6px;
@@ -96,21 +94,69 @@
       border-bottom: 2px solid #ff9800;
     }
 
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    nav.mobile-menu {
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 20px 0;
+      display: none;
+      text-align: center;
+    }
+
+    nav.mobile-menu a {
+      padding: 10px 0;
+      font-size: 1.2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav.mobile-menu.show {
+      display: flex;
+    }
+
     /* Sections */
     section {
-      padding: 140px 20px 80px;
+      padding: 120px 5% 80px;
       min-height: 100vh;
       text-align: center;
-      position: relative;
-      z-index: 1;
     }
 
     section h1 {
       position: relative;
-      font-size: 3.6rem;
+      font-size: 3rem;
       font-weight: 700;
       color: #ff9800;
-      z-index: 2;
       margin-bottom: 25px;
       text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
     }
@@ -121,73 +167,61 @@
       top: 60%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 6.5rem;
+      font-size: 6rem;
       color: rgba(255, 255, 255, 0.07);
       font-weight: 900;
       white-space: nowrap;
-      z-index: 1;
       pointer-events: none;
     }
 
     section p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       max-width: 800px;
       margin: 0 auto 25px;
       color: #fff;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-    }
-
-    #about p {
-      font-size: 1.35rem;
-      line-height: 2;
     }
 
     /* Home Section */
     #home {
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
-      gap: 50px;
       flex-wrap: wrap;
-      padding-left: 8%;
-      text-align: left;
+      gap: 40px;
+      padding-top: 120px;
     }
 
     .intro-text {
-      max-width: 650px;
-      z-index: 2;
+      max-width: 600px;
     }
 
     .intro-text h2 {
-      font-size: 3.2rem;
+      font-size: 2.8rem;
       color: #ff9800;
       margin-bottom: 20px;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
     }
 
     .intro-text h3 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 18px;
       color: #fff;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
     }
 
     .intro-text p {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       margin-bottom: 20px;
     }
 
     .btn {
       background: #ff9800;
       color: #000;
-      padding: 16px 38px;
-      font-size: 1.1rem;
+      padding: 14px 32px;
+      font-size: 1rem;
       font-weight: 600;
       border: none;
-      border-radius: 35px;
+      border-radius: 30px;
       cursor: pointer;
       transition: all 0.3s ease;
-      margin-top: 15px;
     }
 
     .btn:hover {
@@ -195,12 +229,12 @@
       color: #fff;
     }
 
-    /* Projects & Gallery */
+    /* Projects, Gallery, Contact */
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 35px;
-      width: 85%;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      width: 100%;
       margin: auto;
     }
 
@@ -212,120 +246,43 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       text-align: center;
       cursor: pointer;
-      backdrop-filter: blur(5px);
     }
 
     .card:hover {
       transform: translateY(-8px);
     }
 
-    .card h2 {
-      font-size: 1.6rem;
-      color: #fff;
-      margin-top: 10px;
-    }
-
-    .card p {
-      font-size: 1.1rem;
-      color: #ddd;
-    }
-
     .card img {
       width: 100%;
       border-radius: 10px;
       margin-bottom: 12px;
-      max-height: 220px;
       object-fit: cover;
-      cursor: pointer;
-    }
-
-    /* Lightbox */
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 80%;
-      border-radius: 12px;
-      box-shadow: 0 0 20px #000;
-    }
-
-    /* Contact Section */
-    .contact-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 45px;
-      padding: 50px 20px;
-    }
-
-    .contact-box {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 30px;
-      border-radius: 18px;
-      flex: 1 1 240px;
-      max-width: 340px;
-      transition: 0.3s ease;
-      backdrop-filter: blur(5px);
-    }
-
-    .contact-box:hover {
-      transform: translateY(-8px);
-    }
-
-    .icon {
-      font-size: 30px;
-      background: #222;
-      color: #ff9800;
-      width: 75px;
-      height: 75px;
-      border-radius: 50%;
-      margin: 0 auto 18px auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .contact-box h3 {
-      margin: 12px 0;
-      font-size: 1.3rem;
-      color: #fff;
-    }
-
-    .contact-box p {
-      color: #ddd;
-      font-size: 1.1rem;
-      white-space: nowrap;
+      height: auto;
     }
 
     /* Footer */
     footer {
-      padding: 25px;
+      padding: 20px;
       text-align: center;
       background: rgba(0, 0, 0, 0.7);
-      color: #fff;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 600;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
     }
 
     /* Responsive */
     @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      nav {
+        display: none;
+      }
+
       #home {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding-left: 0;
       }
 
       .intro-text {
@@ -333,15 +290,30 @@
       }
 
       .intro-text h2 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
       }
 
       .intro-text h3 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
       }
 
-      .intro-text p {
-        font-size: 1.1rem;
+      section h1::before {
+        font-size: 4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      html {
+        font-size: 14px;
+      }
+
+      section {
+        padding: 100px 4% 60px;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        font-size: 0.95rem;
       }
     }
   </style>
@@ -351,8 +323,26 @@
   <!-- Header -->
   <header id="header">
     <div class="logo">Bishal Basyal</div>
+
+    <!-- Desktop Nav -->
     <nav>
       <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#photographs">Photographs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+      <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#photographs">Photographs</a>
@@ -379,35 +369,21 @@
   <!-- Projects -->
   <section id="projects">
     <h1 data-text="Projects">Projects</h1>
-    <p>Below are the sample Data Analytics projects on Python, ML & ArcGIS.</p>
     <div class="projects">
-      <div class="card">
-        <h2>Portfolio Website</h2>
-        <p>A responsive personal website built with HTML, CSS, and JS.</p>
-      </div>
-      <div class="card">
-        <h2>E-commerce Template</h2>
-        <p>Modern shopping cart UI with responsive layout and animations.</p>
-      </div>
-      <div class="card">
-        <h2>Blog Platform</h2>
-        <p>Clean blog UI built with CMS support and optimized readability.</p>
-      </div>
+      <div class="card"><h2>Portfolio Website</h2><p>A responsive personal website built with HTML, CSS, and JS.</p></div>
+      <div class="card"><h2>E-commerce Template</h2><p>Modern shopping cart UI with responsive layout and animations.</p></div>
+      <div class="card"><h2>Blog Platform</h2><p>Clean blog UI built with CMS support and optimized readability.</p></div>
     </div>
   </section>
 
   <!-- Photographs -->
   <section id="photographs">
     <h1 data-text="Photographs">Photographs</h1>
-    <p>Here are some of my favorite moments captured through the lens.</p>
     <div class="projects">
       <div class="card"><img src="Sunset.jpeg" alt="Sunset" class="clickable-img"><h2>Sunset</h2></div>
       <div class="card"><img src="Pokhara.JPG" alt="Scenic View" class="clickable-img"><h2>Pokhara</h2></div>
       <div class="card"><img src="lakeside.JPG" alt="Lakeside Boats" class="clickable-img"><h2>Lakeside</h2></div>
       <div class="card"><img src="Lumbini.JPG" alt="Heritage Site" class="clickable-img"><h2>Lumbini</h2></div>
-      <div class="card"><img src="Laxmana lake.JPG" alt="Peaceful Lake" class="clickable-img"><h2>Laxmana Lake</h2></div>
-      <div class="card"><img src="Bindabasini Temple.JPG" alt="Temple" class="clickable-img"><h2>Bindabasini Temple</h2></div>
-      <div class="card"><img src="kedareshwor Temple.jpeg" alt="Shiva Statue" class="clickable-img"><h2>Kedareshwor Temple</h2></div>
     </div>
   </section>
 
@@ -415,60 +391,34 @@
   <section id="contact">
     <h1 data-text="Contact">Contact</h1>
     <p>Want to get in touch? Find me below or send a message!</p>
-
-    <div class="contact-container">
-      <div class="contact-box">
-        <div class="icon">📍</div>
-        <h3>ADDRESS</h3>
-        <p>Nepalgunj, Nepal</p>
-      </div>
-      <div class="contact-box">
-        <div class="icon">📞</div>
-        <h3>PHONE</h3>
-        <p>+977-9844762700</p>
-      </div>
-      <div class="contact-box">
-        <div class="icon">✉️</div>
-        <h3>EMAIL ADDRESS</h3>
-        <p>bishalbasyal007@gmail.com</p>
-      </div>
-    </div>
-
-    <div class="question-box">
-      <h2>Have a Question?</h2>
-      <a href="contact-form.html" target="_blank">
-        <button class="btn">CLICK HERE</button>
-      </a>
+    <div class="projects">
+      <div class="card"><h2>📍 Address</h2><p>Nepalgunj, Nepal</p></div>
+      <div class="card"><h2>📞 Phone</h2><p>+977-9844762700</p></div>
+      <div class="card"><h2>✉️ Email</h2><p>bishalbasyal007@gmail.com</p></div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>&copy; 2025 Bishal Basyal | All Rights Reserved</footer>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <img src="" alt="Expanded View" id="lightbox-img">
-  </div>
-
-  <!-- Script -->
   <script>
     const header = document.getElementById("header");
     const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav a");
+    const navLinks = document.querySelectorAll("header nav a");
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
 
     // Scroll highlight
     window.addEventListener("scroll", () => {
       header.classList.toggle("scrolled", window.scrollY > 50);
-
       let current = "";
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 120;
+        const sectionTop = section.offsetTop - 150;
         const sectionHeight = section.clientHeight;
         if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
           current = section.getAttribute("id");
         }
       });
-
       navLinks.forEach((link) => {
         link.classList.remove("active");
         if (link.getAttribute("href") === "#" + current) {
@@ -477,20 +427,18 @@
       });
     });
 
-    // Lightbox
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const clickableImgs = document.querySelectorAll(".clickable-img");
-
-    clickableImgs.forEach(img => {
-      img.addEventListener("click", () => {
-        lightbox.style.display = "flex";
-        lightboxImg.src = img.src;
-      });
+    // Hamburger toggle
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      mobileMenu.classList.toggle("show");
     });
 
-    lightbox.addEventListener("click", () => {
-      lightbox.style.display = "none";
+    // Hide mobile menu on click
+    document.querySelectorAll("#mobileMenu a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("show");
+        hamburger.classList.remove("active");
+      });
     });
   </script>
 </body>
